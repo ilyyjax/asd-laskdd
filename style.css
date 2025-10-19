@@ -1,0 +1,100 @@
+/* Reset and base styling */
+* { box-sizing: border-box; }
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  background: #0d0d0d;
+  color: #e6f7ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Page layout */
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  padding: 40px;
+}
+
+/* Title */
+.top-text {
+  margin-bottom: 40px;
+  animation: fadeIn 1.2s ease forwards;
+}
+
+.top-text h1 {
+  margin: 0;
+  font-size: clamp(28px, 4vw, 48px);
+  color: #c9f8ff;
+  text-shadow:
+    0 0 8px rgba(0,255,255,0.4),
+    0 0 16px rgba(0,200,255,0.3),
+    0 0 32px rgba(0,150,255,0.2);
+  animation: smoothFloat 6s ease-in-out infinite;
+  transition: transform 1s ease, text-shadow 1s ease;
+}
+
+/* Smoother hover animation for title */
+.top-text h1:hover {
+  transform: scale(1.04) translateY(-5px);
+  text-shadow:
+    0 0 12px rgba(0,255,255,0.6),
+    0 0 32px rgba(0,200,255,0.4),
+    0 0 64px rgba(0,150,255,0.3);
+}
+
+/* Clock section */
+.clock-wrap {
+  padding: 20px 40px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow:
+    0 0 20px rgba(0,0,0,0.6),
+    inset 0 0 10px rgba(255,255,255,0.02);
+  animation: fadeIn 1.5s ease forwards 0.3s;
+}
+
+/* Clock text */
+.clock {
+  font-weight: 700;
+  font-size: clamp(48px, 12vw, 160px);
+  color: #e9ffff;
+  text-shadow:
+    0 0 10px rgba(175,255,255,0.3),
+    0 0 40px rgba(0,150,255,0.2);
+  animation: smoothFloat 8s ease-in-out infinite;
+  transition: transform 0.8s ease, text-shadow 0.8s ease;
+}
+
+/* Hover effect for clock */
+.clock-wrap:hover .clock {
+  transform: translateY(-8px) scale(1.03);
+  text-shadow:
+    0 0 14px rgba(175,255,255,0.5),
+    0 0 48px rgba(0,170,255,0.4);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes smoothFloat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
